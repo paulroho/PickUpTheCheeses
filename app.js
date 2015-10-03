@@ -10,13 +10,13 @@
 		cheeseLeft: 480,
 		cheeseTop: 0,
 	};
-	var steps = [moveRightStep('move w/o cheese #1'), 
-				 moveRightStep('move w/o cheese #2'), 
-				 moveRightStep('move w/o cheese #3'),
+	var steps = [moveRight('move w/o cheese #1'), 
+				 moveRight('move w/o cheese #2'), 
+				 moveRight('move w/o cheese #3'),
 	             pickupTheCheese(),
-				 moveRightStep('move with cheese #1'),
-				 moveRightStep('move with cheese #2'),
-				 moveRightStep('move with cheese #3')];
+				 moveRight('move with cheese #1'),
+				 moveRight('move with cheese #2'),
+				 moveRight('move with cheese #3')];
 	var stepCnt = 0;
 	var currStep;
 	

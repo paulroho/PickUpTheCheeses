@@ -1,6 +1,6 @@
 'use strict';
 
-var moveRightStep = function(name) {
+var moveRight = function(name) {
 	var ctx;
 	var name = name;
 	var maxMouseLeft;
@@ -43,8 +43,8 @@ var pickupTheCheese = function() {
 			console.log('pickupTheCheese');
 			ctx.cheeseTop -= 20;
 			ctx.cheese.style.top = ctx.cheeseTop + 'px';
-			ctx.cheeseLeft -= 20;
-			ctx.cheese.style.left = ctx.cheeseLeft + 'px';
+			// ctx.cheeseLeft -= 20;
+			// ctx.cheese.style.left = ctx.cheeseLeft + 'px';
 			ctx.hasPickedUpCheese = true;
 		}
 	};
