@@ -1,14 +1,22 @@
 body {
 	background-color:#32B5F3;
-	font-family:Arial;
+	font-family:Calibri,Arial;
+}
+
+#ui {
+	position:relative;
+	top:6em;
+}
+
+#code {
+	width:15em;
+	height:6em;
+	font-size:1.5em;
 }
 
 #start {
-	position:relative;
-	top:6em;
 	width:10em;
 	height:3em;
-	font-size:1em;
 }
 
 #drawing {
