@@ -37,7 +37,7 @@ var pickupTheCheese = function() {
 	function checkPreconditions() {
 		var noseLeft = ctx.mouseLeft + 100;
 		if (noseLeft !== ctx.cheeseLeft) {
-			return "Du kannst den Käse hier nicht aufheben. Gehe zuerst zum Käse.";
+			return "Du kannst den Käse hier nicht nehmen. Gehe zuerst zum Käse.";
 		}
 	}
 	
