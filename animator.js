@@ -12,7 +12,7 @@ var animator = (function() {
 	};
 	
 	var steps;
-	var stepCnt = 0;
+	var stepCnt;
 	var currStep;
 	
 	// https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
@@ -48,6 +48,7 @@ var animator = (function() {
 	return {
 		run: function(psteps) {
 			steps = psteps;
+			stepCnt = 0;
 			currStep = getNextStep();
 			animLoop(function(delta) {
 				var proceedWithCurrentStep = currStep.nextFrame(delta);

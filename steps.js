@@ -13,7 +13,7 @@ var moveRight = function(name) {
 		},
 		
 		nextFrame:  function(delta) {
-			console.log(name + ', ctx.mouseLeft = ' + ctx.mouseLeft);
+			// console.log(name + ', ctx.mouseLeft = ' + ctx.mouseLeft);
 			var prevPos = ctx.mouseLeft;
 			var speed = (ctx.hasPickedUpCheese) ? 1 : 3;
 			ctx.mouseLeft += speed * delta / 16;
@@ -48,7 +48,7 @@ var pickupTheCheese = function() {
 		},
 		
 		nextFrame: function() {
-			console.log('pickupTheCheese');
+			// console.log('pickupTheCheese');
 			ctx.cheeseTop -= 20;
 			ctx.cheese.style.top = ctx.cheeseTop + 'px';
 			// ctx.cheeseLeft -= 20;
@@ -76,7 +76,7 @@ var eatTheCheese = function() {
 		},
 		
 		nextFrame: function(delta) {
-			console.log('eatTheCheese');
+			// console.log('eatTheCheese');
 			var moveBy = delta / 50;
 			ctx.cheeseLeft -= 3 * moveBy;
 			ctx.cheeseTop += 2 * moveBy;
