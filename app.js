@@ -1,10 +1,41 @@
 'use strict';
 
+var moveRightStep = function(data){
+	var ctx;
+	var aux = data;
+	var maxMouseLeft;
+	var stepLength = 100;
+	
+	var init = function(context) {
+		ctx = context;
+		maxMouseLeft = ctx.mouseLeft + stepLength;
+	};
+	
+	var moveRight = function(delta) {
+		console.log(aux + ', ctx.mouseLeft = ' + ctx.mouseLeft);
+		ctx.mouseLeft += 3 * delta / 16;
+		var proceed = ctx.mouseLeft < maxMouseLeft;
+		if (!proceed) {
+			ctx.mouseLeft = maxMouseLeft;
+		}
+		ctx.mouse.style.left = ctx.mouseLeft + 'px';
+		return proceed;
+	};
+	
+	return {
+		init: init,
+		nextFrame: moveRight
+	};
+};
+
 (function(){
 	var mice = document.getElementsByClassName("mouse");
-	var mouse = mice[0];
-	var mouseLeft = 100;
-	var maxMouseLeft = 400;
+	var context = {
+		mouse: mice[0],
+		mouseLeft: 100
+	};
+	var steps = [moveRightStep('1'), moveRightStep('2'), moveRightStep('3')];
+	var stepCnt = 0;
 	var currStep;
 	
 	// https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
@@ -12,7 +43,6 @@
 		var running = true;
 		var lastFrame = undefined;
 		function loop( now ) {
-			console.log('loop ' + now);
 			if (typeof(lastFrame) === 'undefined') {
 				lastFrame = now;
 			}
@@ -26,9 +56,9 @@
 		requestAnimationFrame(loop);
 	}
 	
-	currStep = moveRight;
+	currStep = getNextStep();
 	animLoop(function(delta) {
-		var proceedWithCurrentStep = currStep(delta);
+		var proceedWithCurrentStep = currStep.nextFrame(delta);
 		if (proceedWithCurrentStep !== true) {
 			currStep = getNextStep();
 			return typeof(currStep) !== 'undefined';
@@ -37,16 +67,10 @@
 	});
 	
 	function getNextStep() {
-		return undefined;
-	}
-	
-	function moveRight(delta) {
-		mouseLeft += 3 * delta / 16;
-		var proceed = mouseLeft < maxMouseLeft;
-		if (!proceed) {
-			mouseLeft = maxMouseLeft;
+		var nextStep = steps[stepCnt++];
+		if (typeof(nextStep) !== 'undefined') {
+			nextStep.init(context);
 		}
-		mouse.style.left = mouseLeft + 'px';
-		return proceed;
+		return nextStep;
 	}
 })();
