@@ -64,7 +64,7 @@ var eatTheCheese = function() {
 
 	function checkPreconditions() {
 		if (ctx.hasPickedUpCheese !== true) {
-			return "Du kannst den Käse jetzt nicht essen. Lade ihn dir zuerst auf.";
+			return "Du kannst den Käse jetzt nicht essen. Nimm ihn zuerst.";
 		}
 	}
 	
@@ -86,6 +86,7 @@ var eatTheCheese = function() {
 			var eatUp = ctx.cheeseLeft < initCheeseLeft - 35
 			if (eatUp) {
 				ctx.cheese.style.display = 'none';
+				alert('Hmmm, das war gut!');
 			}
 			return !eatUp;
 		}
