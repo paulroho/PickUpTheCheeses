@@ -3,6 +3,14 @@ body {
 	font-family:Arial;
 }
 
+#start {
+	position:relative;
+	top:6em;
+	width:10em;
+	height:3em;
+	font-size:1em;
+}
+
 #drawing {
 	position:relative;
 }
