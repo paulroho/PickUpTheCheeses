@@ -1,40 +1,22 @@
 'use strict';
 
-var moveRightStep = function(data){
-	var ctx;
-	var aux = data;
-	var maxMouseLeft;
-	var stepLength = 100;
-	
-	var init = function(context) {
-		ctx = context;
-		maxMouseLeft = ctx.mouseLeft + stepLength;
-	};
-	
-	var moveRight = function(delta) {
-		console.log(aux + ', ctx.mouseLeft = ' + ctx.mouseLeft);
-		ctx.mouseLeft += 3 * delta / 16;
-		var proceed = ctx.mouseLeft < maxMouseLeft;
-		if (!proceed) {
-			ctx.mouseLeft = maxMouseLeft;
-		}
-		ctx.mouse.style.left = ctx.mouseLeft + 'px';
-		return proceed;
-	};
-	
-	return {
-		init: init,
-		nextFrame: moveRight
-	};
-};
-
 (function(){
-	var mice = document.getElementsByClassName("mouse");
 	var context = {
-		mouse: mice[0],
-		mouseLeft: 100
+		mouse: document.getElementsByClassName("mouse")[0],
+		mouseLeft: 100,
+		hasPickedUpCheese: false,
+		
+		cheese: document.getElementsByClassName("cheese")[0],
+		cheeseLeft: 480,
+		cheeseTop: 0,
 	};
-	var steps = [moveRightStep('1'), moveRightStep('2'), moveRightStep('3')];
+	var steps = [moveRightStep('move w/o cheese #1'), 
+				 moveRightStep('move w/o cheese #2'), 
+				 moveRightStep('move w/o cheese #3'),
+	             pickupTheCheese(),
+				 moveRightStep('move with cheese #1'),
+				 moveRightStep('move with cheese #2'),
+				 moveRightStep('move with cheese #3')];
 	var stepCnt = 0;
 	var currStep;
 	
