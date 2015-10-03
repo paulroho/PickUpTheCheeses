@@ -1,0 +1,78 @@
+body {
+	background-color:#C100CE;
+	font-family:Arial;
+}
+
+#drawing {
+	position:relative;
+}
+
+.mouse {
+	position:relative;
+	left:100px;
+}
+
+.mouse .body-top {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100px;
+	height:60px;
+	border-radius:50%;
+	background-image:
+        linear-gradient(0deg, #C100CE 50%, lightgray 50%);
+}
+
+.mouse .body-bottom {
+	position:absolute;
+	left:0px;
+	top:20px;
+	background-color:darkgray;
+	width:100px;
+	height:20px;
+	border-radius:50%;
+	background-image:
+        linear-gradient(180deg, lightgray 50%, darkgray 50%);
+}
+
+.mouse .ear {
+	position:absolute;
+	left:50px;
+	top:-15px;
+	background-color:darkgray;
+	width:25px;
+	height:35px;
+	border-radius:50%;
+}
+
+.mouse .nose {
+	position:absolute;
+	width:8px;
+	height:8px;
+	left:95px;
+	top:17px;
+	background-color:black;
+	border-radius:50%;
+}
+
+.mouse .eye {
+	position:absolute;
+	width:10px;
+	height:10px;
+	left:75px;
+	top:10px;
+	background-color:darkblue;
+	border-radius:50%;
+}
+
+.mouse .tail {
+	position:absolute;
+	width:30px;
+	height:30px;
+	border-width:2px;
+	border-color:black;
+	border-style:none none solid solid;
+	border-radius:0 0 0 30px;
+	left:-30px;
+	top:0px;
+}
