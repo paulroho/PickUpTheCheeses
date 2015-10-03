@@ -50,14 +50,16 @@ var animator = (function() {
 			steps = psteps;
 			stepCnt = 0;
 			currStep = getNextStep();
-			animLoop(function(delta) {
-				var proceedWithCurrentStep = currStep.nextFrame(delta);
-				if (proceedWithCurrentStep !== true) {
-					currStep = getNextStep();
-					return typeof(currStep) !== 'undefined';
-				}
-				return proceedWithCurrentStep;
-			});
+			if (typeof(currStep) !== 'undefined') {
+				animLoop(function(delta) {
+					var proceedWithCurrentStep = currStep.nextFrame(delta);
+					if (proceedWithCurrentStep !== true) {
+						currStep = getNextStep();
+						return typeof(currStep) !== 'undefined';
+					}
+					return proceedWithCurrentStep;
+				});
+			}
 		}
 	};
 })();
