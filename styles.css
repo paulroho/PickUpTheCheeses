@@ -80,7 +80,8 @@ body {
 
 .cheese {
 	position:absolute;
-	left:480px;
+	margin-left:-20px;
+	left:500px;
 }
 
 .cheese .pie {

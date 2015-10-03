@@ -7,12 +7,13 @@
 		hasPickedUpCheese: false,
 		
 		cheese: document.getElementsByClassName("cheese")[0],
-		cheeseLeft: 480,
+		cheeseLeft: 500,
 		cheeseTop: 0,
 	};
 	var steps = [moveRight('move w/o cheese #1'), 
 				 moveRight('move w/o cheese #2'), 
 				 moveRight('move w/o cheese #3'),
+				 // moveRight('move w/o cheese #4'),
 	             pickupTheCheese(),
 				 moveRight('move with cheese #1'),
 				 // moveRight('move with cheese #2'),
@@ -52,7 +53,11 @@
 	function getNextStep() {
 		var nextStep = steps[stepCnt++];
 		if (typeof(nextStep) !== 'undefined') {
-			nextStep.init(context);
+			var error = nextStep.start(context);
+			if (typeof(error) === 'string') {
+				alert(error);
+				return undefined;
+			}
 		}
 		return nextStep;
 	}

@@ -7,7 +7,7 @@ var moveRight = function(name) {
 	var stepLength = 100;
 	
 	return {
-		init: function(context) {
+		start: function(context) {
 			ctx = context;
 			maxMouseLeft = ctx.mouseLeft + stepLength;
 		},
@@ -33,10 +33,18 @@ var moveRight = function(name) {
 
 var pickupTheCheese = function() {
 	var ctx;
+
+	function checkPreconditions() {
+		var noseLeft = ctx.mouseLeft + 100;
+		if (noseLeft !== ctx.cheeseLeft) {
+			return "Du kannst den Käse hier nicht aufheben. Gehe zuerst zum Käse.";
+		}
+	}
 	
 	return {
-		init: function(context) {
+		start: function(context) {
 			ctx = context;
+			return checkPreconditions()
 		},
 		
 		nextFrame: function() {
@@ -53,11 +61,18 @@ var pickupTheCheese = function() {
 var eatTheCheese = function() {
 	var ctx;
 	var initCheeseLeft;
+
+	function checkPreconditions() {
+		if (ctx.hasPickedUpCheese !== true) {
+			return "Du kannst den Käse jetzt nicht essen. Lade ihn dir zuerst auf.";
+		}
+	}
 	
 	return {
-		init: function(context) {
+		start: function(context) {
 			ctx = context;
 			initCheeseLeft = ctx.cheeseLeft;
+			return checkPreconditions();
 		},
 		
 		nextFrame: function(delta) {
