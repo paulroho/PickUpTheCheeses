@@ -10,7 +10,7 @@ var parser = (function() {
 			case "Iss den Käse":
 				return eatTheCheese();
 			default:
-				throw 'Die Anweisung "' + line + '" ist ungültig!';
+				throw 'Die Anweisung "' + line + '" kenne ich leider nicht!';
 		}
 	}
 	
