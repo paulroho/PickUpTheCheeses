@@ -1,13 +1,32 @@
+'use strict';
+
 (function(){
 	var mice = document.getElementsByClassName("mouse");
 	var mouse = mice[0];
-	var left = 100;
+	var mouseLeft = 100;
 	
-	var timer = setInterval(function() {
-		left += 1;
-		mouse.style.left = left + 'px';
-		if (left >= 400) {
-			clearInterval(timer);
+	// https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
+	function animLoop( render ) {
+		var running = true;
+		var lastFrame = undefined;
+		function loop( now ) {
+			if (typeof(lastFrame) === 'undefined') {
+				lastFrame = now;
+			}
+
+			if ( running !== false ) {
+				requestAnimationFrame( loop );
+				running = render( now - lastFrame );
+				lastFrame = now;
+			}
 		}
-	}, 10);
+		requestAnimationFrame(loop);
+	}
+	
+	animLoop(function(delta) {
+		mouseLeft += 2 * delta / 16;
+		mouse.style.left = mouseLeft + 'px';
+		if (mouseLeft >= 400)
+			return false;
+	});
 })();
