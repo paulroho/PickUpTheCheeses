@@ -49,3 +49,30 @@ var pickupTheCheese = function() {
 		}
 	};
 };
+
+var eatTheCheese = function() {
+	var ctx;
+	var initCheeseLeft;
+	
+	return {
+		init: function(context) {
+			ctx = context;
+			initCheeseLeft = ctx.cheeseLeft;
+		},
+		
+		nextFrame: function(delta) {
+			console.log('eatTheCheese');
+			var moveBy = delta / 50;
+			ctx.cheeseLeft -= 3 * moveBy;
+			ctx.cheeseTop += 2 * moveBy;
+			ctx.cheese.style.left = ctx.cheeseLeft + 'px';
+			ctx.cheese.style.top = ctx.cheeseTop + 'px';
+			
+			var eatUp = ctx.cheeseLeft < initCheeseLeft - 35
+			if (eatUp) {
+				ctx.cheese.style.display = 'none';
+			}
+			return !eatUp;
+		}
+	};
+};

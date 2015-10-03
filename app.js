@@ -15,8 +15,9 @@
 				 moveRight('move w/o cheese #3'),
 	             pickupTheCheese(),
 				 moveRight('move with cheese #1'),
-				 moveRight('move with cheese #2'),
-				 moveRight('move with cheese #3')];
+				 // moveRight('move with cheese #2'),
+				 // moveRight('move with cheese #3'),
+				 eatTheCheese()];
 	var stepCnt = 0;
 	var currStep;
 	
