@@ -6,7 +6,7 @@
 	var timer = setInterval(function() {
 		left += 1;
 		mouse.style.left = left + 'px';
-		if (left >= 550) {
+		if (left >= 400) {
 			clearInterval(timer);
 		}
 	}, 10);
