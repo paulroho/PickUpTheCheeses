@@ -11,15 +11,7 @@ var animator = (function() {
 		cheeseTop: 0,
 	};
 	
-	var steps = [moveRight('move w/o cheese #1'), 
-				 moveRight('move w/o cheese #2'), 
-				 moveRight('move w/o cheese #3'),
-				 // moveRight('move w/o cheese #4'),
-	             pickupTheCheese(),
-				 moveRight('move with cheese #1'),
-				 // moveRight('move with cheese #2'),
-				 // moveRight('move with cheese #3'),
-				 eatTheCheese()];
+	var steps;
 	var stepCnt = 0;
 	var currStep;
 	
@@ -54,7 +46,8 @@ var animator = (function() {
 	}
 
 	return {
-		run: function() {
+		run: function(psteps) {
+			steps = psteps;
 			currStep = getNextStep();
 			animLoop(function(delta) {
 				var proceedWithCurrentStep = currStep.nextFrame(delta);
