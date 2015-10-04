@@ -21,7 +21,7 @@ var parser = (function() {
 			var lines = code.match(/[^\r\n]+/g);
 			console.log(lines);
 			for (var i=0; i<lines.length; i++) {
-				var line = lines[i];
+				var line = lines[i].trim();
 				var step = getStep(line);
 				steps.push(step);
 			}
