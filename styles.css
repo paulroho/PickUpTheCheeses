@@ -5,7 +5,7 @@ body {
 
 #ui {
 	position:relative;
-	top:6em;
+	top:8em;
 }
 
 #code {
@@ -26,7 +26,7 @@ body {
 .mouse {
 	position:relative;
 	left:100px;
-	top:10px;
+	top:80px;
 }
 
 .mouse .body-top {
@@ -97,6 +97,7 @@ body {
 .cheese {
 	position:absolute;
 	margin-left:-20px;
+	top:70px;
 	left:500px;
 }
 
@@ -142,4 +143,21 @@ body {
 .hole.three {
 	left:40px;
 	top:28px;
+}
+
+.roof {
+	position:absolute;
+	background-color:darkred;
+	width:200px;
+	height:20px;
+}
+
+.roof.left {
+	transform:rotate(-10deg);
+	left:5px;
+}
+
+.roof.right {
+	transform:rotate(10deg);
+	left:600px;
 }

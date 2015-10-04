@@ -8,7 +8,7 @@ var animator = (function() {
 		
 		cheese: document.getElementsByClassName("cheese")[0],
 		cheeseLeft: 500,
-		cheeseTop: 0,
+		cheeseTop: 70,
 	};
 	
 	var steps;
