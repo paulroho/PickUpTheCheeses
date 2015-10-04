@@ -5,18 +5,30 @@ body {
 
 #ui {
 	position:relative;
-	top:8em;
+	top:10em;
 }
 
 #code {
 	width:15em;
 	height:9em;
 	font-size:1.5em;
+	margin:.5em;
 }
 
 #start {
+	position:absolute;
+	top:0;
 	width:10em;
 	height:3em;
+	margin:.5em;
+}
+
+#reset {
+	position:absolute;
+	top:4em;
+	width:10em;
+	height:3em;
+	margin:.5em;
 }
 
 #drawing {

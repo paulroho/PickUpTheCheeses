@@ -1,16 +1,8 @@
 'use strict';
 
 var animator = (function() {
-	var context = {
-		mouse: document.getElementsByClassName("mouse")[0],
-		mouseLeft: 100,
-		hasPickedUpCheese: false,
-		
-		cheese: document.getElementsByClassName("cheese")[0],
-		cheeseLeft: 500,
-		cheeseTop: 70,
-	};
-	
+	var animation;
+	var context;
 	var steps;
 	var stepCnt;
 	var currStep;
@@ -25,12 +17,12 @@ var animator = (function() {
 			}
 
 			if ( running !== false ) {
-				requestAnimationFrame( loop );
+				animation = requestAnimationFrame( loop );
 				running = render( now - lastFrame );
 				lastFrame = now;
 			}
 		}
-		requestAnimationFrame(loop);
+		animation = requestAnimationFrame(loop);
 	}
 	
 	function getNextStep() {
@@ -44,7 +36,31 @@ var animator = (function() {
 		}
 		return nextStep;
 	}
+	
+	function reset() {
+		if (typeof(animation) !== 'undefined') {
+			cancelAnimationFrame(animation);
+		}
+		context = {
+			mouse: document.getElementsByClassName("mouse")[0],
+			mouseLeft: 100,
+			hasPickedUpCheese: false,
+			
+			cheese: document.getElementsByClassName("cheese")[0],
+			cheeseLeft: 500,
+			cheeseTop: 70,
+		};
+		
+		updateView();
+	}
+	
+	function updateView() {
+		context.cheese.style.left = context.cheeseLeft + 'px';
+		context.mouse.style.left = context.mouseLeft + 'px';
+	}
 
+	reset();
+	
 	return {
 		run: function(psteps) {
 			steps = psteps;
@@ -60,6 +76,7 @@ var animator = (function() {
 					return proceedWithCurrentStep;
 				});
 			}
-		}
+		},
+		reset: reset
 	};
 })();
