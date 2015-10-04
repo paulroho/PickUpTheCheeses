@@ -1,2 +1,2 @@
-# pickupthecheeses
-A little fun app to give kids a sense of programming
+# Pickup The Cheeses
+A little fun app to give kids a sense of programming.
