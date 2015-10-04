@@ -16,7 +16,13 @@
 			catch (xcp) {
 				alert(xcp);
 			}
-			animator.run(steps);
+			
+			if (steps.length === 0) {
+				alert("Schreib der Maus was sie tun soll.");
+			}
+			else {
+				animator.run(steps);
+			}			
 		});
 	}
 })(parser, animator);

@@ -23,23 +23,14 @@ var parser = (function() {
 	return {
 		parse: function(code) {
 			var steps = [];
-			
-			var lines = code.match(/[^\r\n]+/g);
-			console.log(lines);
-			for (var i=0; i<lines.length; i++) {
-				var line = lines[i].trim();
-				var step = getStep(line);
-				steps.push(step);
+			if (code.trim().length !== 0) {
+				var lines = code.match(/[^\r\n]+/g);
+				for (var i=0; i<lines.length; i++) {
+					var line = lines[i].trim();
+					var step = getStep(line);
+					steps.push(step);
+				}
 			}
-			// var steps = [moveRight('move w/o cheese #1'), 
-						 // moveRight('move w/o cheese #2'), 
-						 // moveRight('move w/o cheese #3'),
-						 // // moveRight('move w/o cheese #4'),
-						 // pickupTheCheese(),
-						 // moveRight('move with cheese #1'),
-						 // // moveRight('move with cheese #2'),
-						 // // moveRight('move with cheese #3'),
-						 // eatTheCheese()];
 			return steps;
 		}
 	};
