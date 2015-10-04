@@ -47,14 +47,18 @@ var animator = (function() {
 	function reset() {
 		stop();
 		
+		var mouse = document.getElementsByClassName("mouse")[0];
+		var cheese = document.getElementsByClassName("cheese")[0];
+		var cheeseStyle = getComputedStyle(cheese);
+		
 		context = {
-			mouse: document.getElementsByClassName("mouse")[0],
-			mouseLeft: 100,
+			mouse: mouse,
+			mouseLeft: parseInt(getComputedStyle(mouse).left),
 			hasPickedUpCheese: false,
 			
-			cheese: document.getElementsByClassName("cheese")[0],
-			cheeseLeft: 500,
-			cheeseTop: 90,
+			cheese: cheese,
+			cheeseLeft: parseInt(cheeseStyle.left),
+			cheeseTop: parseInt(cheeseStyle.top),
 		};
 		
 		updateView();
