@@ -38,9 +38,8 @@ var animator = (function() {
 	}
 	
 	function reset() {
-		if (typeof(animation) !== 'undefined') {
-			cancelAnimationFrame(animation);
-		}
+		stop();
+		
 		context = {
 			mouse: document.getElementsByClassName("mouse")[0],
 			mouseLeft: 100,
@@ -57,6 +56,12 @@ var animator = (function() {
 	function updateView() {
 		context.cheese.style.left = context.cheeseLeft + 'px';
 		context.mouse.style.left = context.mouseLeft + 'px';
+	}
+	
+	function stop() {
+		if (typeof(animation) !== 'undefined') {
+			cancelAnimationFrame(animation);
+		}
 	}
 
 	reset();
@@ -77,6 +82,7 @@ var animator = (function() {
 				});
 			}
 		},
+		stop: stop,
 		reset: reset
 	};
 })();

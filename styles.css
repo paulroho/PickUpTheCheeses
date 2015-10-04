@@ -23,9 +23,17 @@ body {
 	margin:.5em;
 }
 
-#reset {
+#stop {
 	position:absolute;
 	top:4em;
+	width:10em;
+	height:3em;
+	margin:.5em;
+}
+
+#reset {
+	position:absolute;
+	top:8em;
 	width:10em;
 	height:3em;
 	margin:.5em;

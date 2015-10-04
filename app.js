@@ -24,6 +24,11 @@
 			}			
 		});
 		
+		var btnStop = document.getElementById("stop");
+		btnStop.addEventListener('click', function() {
+			animator.stop();
+		});
+		
 		var btnReset = document.getElementById("reset");
 		btnReset.addEventListener('click', function() {
 			animator.reset();
