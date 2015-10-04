@@ -54,7 +54,7 @@ var animator = (function() {
 			
 			cheese: document.getElementsByClassName("cheese")[0],
 			cheeseLeft: 500,
-			cheeseTop: 70,
+			cheeseTop: 90,
 		};
 		
 		updateView();

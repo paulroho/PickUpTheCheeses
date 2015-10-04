@@ -1,11 +1,11 @@
 body {
-	background-color:#32B5F3;
 	font-family:Calibri,Arial;
+	background-color:orange;
 }
 
 #ui {
 	position:relative;
-	top:10em;
+	top:2em;
 }
 
 #code {
@@ -41,12 +41,17 @@ body {
 
 #drawing {
 	position:relative;
+	top:20px;
+	height:200px;
+	width:100%;
+	background-color:#32B5F3;
+	border:1px solid black;
 }
 
 .mouse {
 	position:relative;
 	left:100px;
-	top:80px;
+	top:100px;
 }
 
 .mouse .body-top {
@@ -117,7 +122,7 @@ body {
 .cheese {
 	position:absolute;
 	margin-left:-20px;
-	top:70px;
+	top:90px;
 	left:500px;
 }
 
@@ -168,6 +173,7 @@ body {
 .roof {
 	position:absolute;
 	background-color:darkred;
+	top:20px;
 	width:200px;
 	height:20px;
 }
