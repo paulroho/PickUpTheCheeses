@@ -6,19 +6,26 @@ var animator = (function() {
 	var steps;
 	var stepCnt;
 	var currStep;
+	var isRunning = false;
+	var startedCallback;
+	var stoppedCallback;
 	
 	// https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
 	function animLoop( render ) {
-		var running = true;
+		isRunning = true;
+		onStarted();
 		var lastFrame = undefined;
-		function loop( now ) {
+		function loop(now) {
 			if (typeof(lastFrame) === 'undefined') {
 				lastFrame = now;
 			}
 
-			if ( running !== false ) {
-				animation = requestAnimationFrame( loop );
-				running = render( now - lastFrame );
+			if (isRunning !== false) {
+				animation = requestAnimationFrame(loop);
+				isRunning = render(now - lastFrame);
+				if (isRunning === false) {
+					onStopped();
+				}
 				lastFrame = now;
 			}
 		}
@@ -61,14 +68,32 @@ var animator = (function() {
 	function stop() {
 		if (typeof(animation) !== 'undefined') {
 			cancelAnimationFrame(animation);
+			if (isRunning) {
+				isRunning = false;
+				onStopped();
+			}
+		}
+	}
+	
+	function onStarted() {
+		if (typeof(startedCallback) !== 'undefined') {
+			startedCallback();
+		}
+	}
+	
+	function onStopped() {
+		if (typeof(stoppedCallback) !== 'undefined') {
+			stoppedCallback();
 		}
 	}
 
 	reset();
 	
 	return {
-		run: function(psteps) {
+		run: function(psteps, pstartedCallback, pstoppedCallback) {
 			steps = psteps;
+			startedCallback = pstartedCallback;
+			stoppedCallback = pstoppedCallback;
 			stepCnt = 0;
 			currStep = getNextStep();
 			if (typeof(currStep) !== 'undefined') {
@@ -83,6 +108,9 @@ var animator = (function() {
 			}
 		},
 		stop: stop,
-		reset: reset
+		reset: reset,
+		isRunning: function() {
+			return isRunning;
+		}
 	};
 })();

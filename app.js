@@ -2,11 +2,14 @@
 
 (function(parser, animator){
 	var steps;
+	var btnStart = document.getElementById("start");
+	var btnStop = document.getElementById("stop");
+	var btnReset = document.getElementById("reset");
 	
 	hookEventHandler();
+	updateUI();
 		
 	function hookEventHandler() {
-		var btnStart = document.getElementById("start");
 		btnStart.addEventListener('click', function() {
 			var code = document.getElementById("code").value;
 			try {
@@ -20,18 +23,28 @@
 				alert("Schreib der Maus was sie tun soll.");
 			}
 			else {
-				animator.run(steps);
+				animator.run(steps, 
+					function() {
+						updateUI();
+					},
+					function() {
+						updateUI();
+					});
 			}			
 		});
 		
-		var btnStop = document.getElementById("stop");
 		btnStop.addEventListener('click', function() {
 			animator.stop();
 		});
 		
-		var btnReset = document.getElementById("reset");
 		btnReset.addEventListener('click', function() {
 			animator.reset();
+			updateUI();
 		});
+	}
+	
+	function updateUI() {
+		btnStart.disabled = animator.isRunning();
+		btnStop.disabled = !animator.isRunning();
 	}
 })(parser, animator);
