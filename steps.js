@@ -31,7 +31,7 @@ var moveRight = function(name) {
 	};
 };
 
-var pickupTheCheese = function() {
+var pickUpTheCheese = function() {
 	var ctx;
 
 	function checkPreconditions() {
@@ -48,7 +48,7 @@ var pickupTheCheese = function() {
 		},
 		
 		nextFrame: function() {
-			// console.log('pickupTheCheese');
+			// console.log('pickUpTheCheese');
 			ctx.cheeseTop -= 20;
 			ctx.cheese.style.top = ctx.cheeseTop + 'px';
 			// ctx.cheeseLeft -= 20;

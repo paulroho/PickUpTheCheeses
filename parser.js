@@ -10,7 +10,7 @@ var parser = (function() {
 			case "Nimm den Käse":
 			case "nimm":
 			case "n":
-				return pickupTheCheese();
+				return pickUpTheCheese();
 			case "Iss den Käse":
 			case "iss":
 			case "i":
