@@ -4,14 +4,17 @@ var parser = (function() {
 	function getStep(line) {
 		switch(line) {
 			case "Gehe nach rechts":
+			case "G":
 			case "gehe":
 			case "g":
 				return moveRight();
 			case "Nimm den Käse":
+			case "N":
 			case "nimm":
 			case "n":
 				return pickUpTheCheese();
 			case "Iss den Käse":
+			case "I":
 			case "iss":
 			case "i":
 				return eatTheCheese();
