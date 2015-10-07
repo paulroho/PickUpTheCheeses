@@ -2,14 +2,17 @@
 
 var animator = (function() {
 	var animation;
-	var context;
+	var context = {};
 	var steps;
 	var stepCnt;
 	var currStep;
 	var isRunning = false;
 	var startedCallback;
 	var stoppedCallback;
-	
+	var initMouseLeft;
+	var initCheeseLeft;
+	var initCheeseTop;
+
 	// https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
 	function animLoop( render ) {
 		isRunning = true;
@@ -44,29 +47,40 @@ var animator = (function() {
 		return nextStep;
 	}
 	
-	function reset() {
-		stop();
-		
+	function init() {
 		var mouse = document.getElementsByClassName("mouse")[0];
 		var cheese = document.getElementsByClassName("cheese")[0];
 		var cheeseStyle = getComputedStyle(cheese);
+		var mouseStyle = getComputedStyle(mouse);
+		initMouseLeft = parseInt(mouseStyle.left);
+		initCheeseLeft = parseInt(cheeseStyle.left);
+		initCheeseTop = parseInt(cheeseStyle.top);
 		
-		context = {
-			mouse: mouse,
-			mouseLeft: parseInt(getComputedStyle(mouse).left),
-			hasPickedUpCheese: false,
-			
-			cheese: cheese,
-			cheeseLeft: parseInt(cheeseStyle.left),
-			cheeseTop: parseInt(cheeseStyle.top),
-		};
-		
+		context.mouse = mouse;
+		context.cheese = cheese;
+		resetContext();
+	}
+	
+	function reset() {
+		stop();
+
+		resetContext();
 		updateView();
 	}
 	
+	function resetContext() {
+		context.mouseLeft = initMouseLeft;
+		context.hasPickedUpCheese = false;
+		context.cheeseIsVisible = true;
+		context.cheeseLeft = initCheeseLeft;
+		context.cheeseTop = initCheeseTop;
+	}
+	
 	function updateView() {
-		context.cheese.style.left = context.cheeseLeft + 'px';
 		context.mouse.style.left = context.mouseLeft + 'px';
+		context.cheese.style.left = context.cheeseLeft + 'px';
+		context.cheese.style.top = context.cheeseTop + 'px';
+		context.cheese.style.display = (context.cheeseIsVisible) ? 'block' : 'none';
 	}
 	
 	function stop() {
@@ -91,7 +105,7 @@ var animator = (function() {
 		}
 	}
 
-	reset();
+	init();
 	
 	return {
 		run: function(psteps, pstartedCallback, pstoppedCallback) {
