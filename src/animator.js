@@ -79,6 +79,7 @@ var animator = (function() {
 
     function init() {
 		var mouse = document.getElementsByClassName("mouse")[0];
+		var mouseTail = document.getElementsByClassName("tail")[0];
 		var cheese = document.getElementsByClassName("cheese")[0];
 		var cheeseStyle = getComputedStyle(cheese);
 		var mouseStyle = getComputedStyle(mouse);
@@ -87,6 +88,7 @@ var animator = (function() {
 		initCheeseTop = parseInt(cheeseStyle.top);
 		
 		context.mouse = mouse;
+        context.mouseTail = mouseTail;
 		context.cheese = cheese;
         context.showMessage = onShowMessage;
 		resetContext();
@@ -107,6 +109,7 @@ var animator = (function() {
         context.cheese.style.left = context.cheeseLeft + "px";
         context.cheese.style.top = context.cheeseTop + "px";
         context.cheese.style.display = (context.cheeseIsVisible) ? "block" : "none";
+        context.mouseTail.classList.remove("paused");
     }
 
     function reset() {

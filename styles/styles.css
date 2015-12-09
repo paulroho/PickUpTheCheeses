@@ -186,8 +186,11 @@ label[for="helpOnInstructions"] {
   100%  { transform:  rotate(0deg); }
 }
 .wobble { 
-    animation: wobble .5s infinite;
+    animation: wobble .3s infinite;
     transform-origin: bottom right;
+}
+.paused {
+    animation-play-state: paused;
 }
 
 .mouse .tail {

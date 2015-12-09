@@ -90,7 +90,8 @@ var eatTheCheese = function() {
 
 		    var eatUp = ctx.cheeseLeft < initCheeseLeft - 35;
 			if (eatUp) {
-				ctx.cheese.style.display = "none";
+			    ctx.cheese.style.display = "none";
+			    ctx.mouseTail.classList.add("paused");
 			    ctx.showMessage("Hmmm, das war gut!");
 			}
 			return !eatUp;
