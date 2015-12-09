@@ -80,15 +80,15 @@ label[for="helpOnInstructions"] {
 .flower {
     position: absolute;
     left: 150px;
-    top: 145px;
+    top: 125px;
 }
 
 .flower .stalk {
     position: relative;
     left: 16px;
     width: 0;
-    height: 55px;
-    border: 2px dotted darkgreen;
+    height: 72px;
+    border: 2px solid darkgreen;
 }
 
 .flower .petal {
@@ -123,7 +123,7 @@ label[for="helpOnInstructions"] {
 .mouse {
 	position:relative;
 	left:100px;
-	top:100px;
+	top:160px;
 }
 
 .mouse .body-top {
@@ -134,7 +134,7 @@ label[for="helpOnInstructions"] {
 	height:60px;
 	border-radius:50%;
 	background-image:
-        linear-gradient(0deg, #32B5F3 50%, lightgray 50%);
+        linear-gradient(0deg, transparent 50%, lightgray 50%);
 }
 
 .mouse .body-bottom {
@@ -206,11 +206,40 @@ label[for="helpOnInstructions"] {
 .cheese {
 	position:absolute;
 	margin-left:-20px;
-	top:90px;
+	top:145px;
 	left:500px;
 }
 
+.cheese .pieContainer {
+	position:absolute;
+    width: 7.5em;
+    height: 7.5em;
+    margin-left: -3.77em;
+    margin-top: -1.95em;
+    transform: scaleY(0.5);
+}
+
 .cheese .pie {
+    position: absolute;
+    width: 7.5em;
+    height: 7.5em;
+    border-radius: 50%;
+    clip: rect(0px, 3.75em, 7.5em, 0px);
+}
+.cheese #pieSlice .pie {
+    background-color: #ED0;
+    transform: rotate(-40deg);
+}
+.cheese .hold {
+    position: absolute;
+    width: 7.5em;
+    height: 7.5em;
+    clip: rect(0px, 7.5em, 7.5em, 3.75em);
+    border-radius: 50%;
+    transform: rotate(-110deg);
+}
+
+.cheese .pie-old {
 	position:absolute;
     width: 7.5em;
     height: 3.5em;
@@ -254,20 +283,50 @@ label[for="helpOnInstructions"] {
 	top:28px;
 }
 
-.roof {
+.house {
+    position: absolute;
+    left: 10px;
+}
+.house .wall {
+	position:absolute;
+	background-color:darkgray;
+	top:40px;
+	width:20px;
+	height:160px;
+}
+.house .wall.left {
+    left: 10px;
+}
+.house .wall.right {
+    left: 720px;
+}
+
+.house .back {
+    position: absolute;
+    background-color: darkblue;
+    top: 30px;
+    width: 180px;
+    height: 170px;
+}
+.house .back.left {
+    left: 20px;
+}
+.house .back.right {
+    left: 550px;
+}
+
+.house .roof {
 	position:absolute;
 	background-color:darkred;
 	top:20px;
 	width:200px;
 	height:20px;
 }
-
-.roof.left {
-	transform:rotate(-10deg);
+.house .roof.left {
+	transform:rotate(-5deg);
 	left:0;
 }
-
-.roof.right {
-	transform:rotate(10deg);
+.house .roof.right {
+	transform:rotate(5deg);
 	left:550px;
 }

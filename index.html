@@ -9,10 +9,22 @@
 		<h1>Hilf der Maus</h1>
 
 	<div id="drawing">
-	    <div class="roof left"> </div>
-	    <div class="roof right"> </div>
+        <div class="house">
+            <div class="back left"> </div>
+            <div class="wall left"> </div>
+            <div class="roof left"> </div>
+            <div class="back right"> </div>
+            <div class="wall right"> </div>
+            <div class="roof right"> </div>
+        </div>
 	    <div class="cheese">
-	        <div class="pie"> </div>
+	        <div class="pieContainer">
+	            <div class="pieBackground"></div>
+	            <div id="pieSlice" class="hold">
+	                <div class="pie"></div>
+	            </div>
+	        </div>
+            <!--<div class="pie-old"> </div>-->
 	        <div class="body"> </div>
 	        <div class="hole one"> </div>
 	        <div class="hole two"> </div>
@@ -26,15 +38,15 @@
 	        <div class="eye"> </div>
 	        <div class="tail"> </div>
 	    </div>
-        <div class="background">
-            <div id="flower-template" class="flower">
-                <div class="stalk"></div>
-                <div class="petal petal-bl"></div>
-                <div class="petal petal-tl"></div>
-                <div class="petal petal-tr"></div>
-                <div class="petal petal-br"></div>
-            </div>
-        </div>
+	    <div class="background">
+	        <div id="flower-template" class="flower">
+	            <div class="stalk"></div>
+	            <div class="petal petal-bl"></div>
+	            <div class="petal petal-tl"></div>
+	            <div class="petal petal-tr"></div>
+	            <div class="petal petal-br"></div>
+	        </div>
+	    </div>
 	    <div id="mouse-bubble" class="bubble">
 	    </div>
 	</div>

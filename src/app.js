@@ -16,9 +16,9 @@
 	};
 	var setupBackground = function () {
 	    var templateFlower = document.getElementById("flower-template");
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 7; i++) {
             var clonedFlower = cloner.cloneDeep(templateFlower);
-            clonedFlower.style.left = 86 + (100 * i) + "px";
+            clonedFlower.style.left = 70 + (100 * i) + "px";
             clonedFlower.style.display = "block";
             templateFlower.parentElement.appendChild(clonedFlower);
         }
