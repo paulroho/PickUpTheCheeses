@@ -29,27 +29,26 @@
             var code = document.getElementById("code").value;
             try {
                 steps = parser.parse(code);
+                if (steps.length === 0) {
+                    alert("Schreib der Maus was sie tun soll.");
+                }
+                else {
+                    animator.run(steps,
+                        function () {
+                            updateUI();
+                        },
+                        function () {
+                            updateUI();
+                        },
+                        function (context, message) {
+                            showMouseMessage(context, message);
+                        });
+                }
+                hideMouseMessage();
             }
             catch (xcp) {
                 alert(xcp);
             }
-			
-            if (steps.length === 0) {
-                alert("Schreib der Maus was sie tun soll.");
-            }
-            else {
-                animator.run(steps, 
-                    function() {
-                        updateUI();
-                    },
-                    function() {
-                        updateUI();
-                    },
-                    function(context, message) {
-                        showMouseMessage(context, message);
-                    });
-            }
-            hideMouseMessage();
         });
 		
         btnStop.addEventListener("click", function() {
