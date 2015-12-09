@@ -119,6 +119,18 @@ body {
 	top:0px;
 }
 
+.bubble {
+    opacity: 0;
+    position: absolute;
+    font-size: 1.5em;
+    border: 3px solid darkgreen;
+    border-radius: .8em;
+    padding: 1em;
+    background-color: white;
+
+    transition: opacity .5s ease-in-out;
+}
+
 .cheese {
 	position:absolute;
 	margin-left:-20px;

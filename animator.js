@@ -9,6 +9,7 @@ var animator = (function() {
 	var isRunning = false;
 	var startedCallback;
 	var stoppedCallback;
+    var showMessageCallback;
 	var initMouseLeft;
 	var initCheeseLeft;
 	var initCheeseTop;
@@ -26,11 +27,19 @@ var animator = (function() {
         }
     }
 
+    function onShowMessage(message) {
+        if (typeof (showMessageCallback) !== "undefined") {
+            showMessageCallback(context, message);
+        }
+    }
+
     function animLoop( render ) {
 		isRunning = true;
 		onStarted();
 		var lastFrame = undefined;
+
 		function loop(now) {
+		    //console.log("loop");
 			if (typeof(lastFrame) === "undefined") {
 				lastFrame = now;
 			}
@@ -44,11 +53,12 @@ var animator = (function() {
 				lastFrame = now;
 			}
 		}
+
 		animation = requestAnimationFrame(loop);
 	}
 	
-	function getNextStep() {
-		var nextStep = steps[stepCnt++];
+    function getNextStep() {
+        var nextStep = steps[stepCnt++];
 		if (typeof(nextStep) !== "undefined") {
 			var error = nextStep.start(context);
 			if (typeof(error) === "string") {
@@ -78,6 +88,7 @@ var animator = (function() {
 		
 		context.mouse = mouse;
 		context.cheese = cheese;
+        context.showMessage = onShowMessage;
 		resetContext();
 	}
 
@@ -108,15 +119,16 @@ var animator = (function() {
     init();
 	
 	return {
-		run: function(psteps, pstartedCallback, pstoppedCallback) {
+	    run: function (psteps, pstartedCallback, pstoppedCallback, pshowMessageCallback) {
 			steps = psteps;
 			startedCallback = pstartedCallback;
 			stoppedCallback = pstoppedCallback;
+			showMessageCallback = pshowMessageCallback;
 			stepCnt = 0;
 			currStep = getNextStep();
 			if (typeof(currStep) !== "undefined") {
-				animLoop(function(delta) {
-					var proceedWithCurrentStep = currStep.nextFrame(delta);
+			    animLoop(function (delta) {
+				    var proceedWithCurrentStep = currStep.nextFrame(delta);
 					if (proceedWithCurrentStep !== true) {
 						currStep = getNextStep();
 						return typeof(currStep) !== "undefined";
