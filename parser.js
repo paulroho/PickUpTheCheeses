@@ -1,27 +1,23 @@
 "use strict";
 
-var parser = (function() {
-	function getStep(line) {
-		switch(line) {
-			case "Gehe nach rechts":
-			case "G":
-			case "gehe":
-			case "g":
-				return moveRight();
-			case "Nimm den Käse":
-			case "N":
-			case "nimm":
-			case "n":
-				return pickUpTheCheese();
-			case "Iss den Käse":
-			case "I":
-			case "iss":
-			case "i":
-				return eatTheCheese();
-			default:
-				throw "Die Anweisung \"" + line + "\" kenne ich leider nicht!";
-		}
-	}
+var parser = (function () {
+    var instructions = [
+        { instruction: ["Gehe nach rechts", "G", "gehe", "g"], stepFunc: moveRight },
+        { instruction: ["Nimm den Käse", "N", "nimm", "n"], stepFunc: pickUpTheCheese },
+        { instruction: ["Iss den Käse", "I", "iss", "i"], stepFunc: eatTheCheese }
+    ];
+
+    function getStep(line) {
+        var matchingInstructions = instructions.filter(function(item) {
+            return item.instruction.indexOf(line) !== -1;
+        });
+
+        if (matchingInstructions.length === 0) {
+            throw "Die Anweisung \"" + line + "\" kenne ich leider nicht!";
+        }
+
+        return matchingInstructions[0].stepFunc();
+    }
 	
 	return {
 		parse: function(code) {
