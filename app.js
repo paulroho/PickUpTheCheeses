@@ -5,7 +5,15 @@
 	var btnStart = document.getElementById("start");
 	var btnStop = document.getElementById("stop");
 	var btnReset = document.getElementById("reset");
-    var mouseBubble = document.getElementById("mouse-bubble");
+	var mouseBubble = document.getElementById("mouse-bubble");
+
+	var setupHelpOnInstructions = function () {
+	    var helpElement = document.getElementById("helpOnInstructions");
+	    var text = parser.instructions.map(function(item) {
+	        return item.instructions.join(" = ");
+	    }).join("\n");
+	    helpElement.innerHTML = text;
+	};
 
     function showMouseMessage(context, message) {
         //console.log("showMouseMessage(\"" + message + "\")");
@@ -62,6 +70,7 @@
         });
     }
 
+    setupHelpOnInstructions();
     hookEventHandler();
 	updateUI();
 })(parser, animator);

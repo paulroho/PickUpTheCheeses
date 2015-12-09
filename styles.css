@@ -8,35 +8,60 @@ body {
 	top:2em;
 }
 
+label[for="code"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 #code {
+    position: absolute;
+    top: 25px;
 	width:15em;
 	height:9em;
 	font-size:1.5em;
-	margin:.5em;
+	margin-right:.5em;
+}
+
+label[for="helpOnInstructions"] {
+    position: absolute;
+    top: 0;
+    left: 450px;
+}
+#helpOnInstructions {
+    white-space: pre;
+    position: absolute;
+    top: 25px;
+    left: 450px;
+    width: 20em;
+    background-color: rgb(253, 202, 110);
+    border: 1px solid black;
+	font-size:1.5em;
+    font-family: monospace;
+    padding: .5em;
 }
 
 #start {
 	position:absolute;
-	top:0;
+    top: 25px;
+    left: 300px;
 	width:10em;
 	height:3em;
-	margin:.5em;
 }
 
 #stop {
 	position:absolute;
-	top:4em;
+    top: 75px;
+    left: 300px;
 	width:10em;
 	height:3em;
-	margin:.5em;
 }
 
 #reset {
 	position:absolute;
-	top:8em;
+	top: 125px;
+    left: 300px;
 	width:10em;
 	height:3em;
-	margin:.5em;
 }
 
 #drawing {
