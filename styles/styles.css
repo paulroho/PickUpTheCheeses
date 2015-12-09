@@ -179,14 +179,25 @@ label[for="helpOnInstructions"] {
 	border-radius:50%;
 }
 
+@keyframes wobble  {
+  0%  { transform:  rotate(0deg); }
+  40%  { transform:  rotate(5deg); }
+  60%  { transform:  rotate(-5deg); }
+  100%  { transform:  rotate(0deg); }
+}
+.wobble { 
+    animation: wobble .5s infinite;
+    transform-origin: bottom right;
+}
+
 .mouse .tail {
 	position:absolute;
 	width:30px;
 	height:30px;
-	border-width:2px;
+	border-width:3px;
 	border-color:black;
-	border-style:none none solid solid;
-	border-radius:0 0 0 30px;
+	border-style:none none solid none;
+	border-radius:0 0 0 130px;
 	left:-30px;
 	top:0px;
 }
@@ -303,16 +314,17 @@ label[for="helpOnInstructions"] {
 
 .house .back {
     position: absolute;
-    background-color: darkblue;
     top: 30px;
     width: 180px;
     height: 170px;
 }
 .house .back.left {
     left: 20px;
+    background-image: linear-gradient(to right, darkblue, #32B5F3);
 }
 .house .back.right {
     left: 550px;
+    background-image: linear-gradient(to left, darkblue, #32B5F3);
 }
 
 .house .roof {
