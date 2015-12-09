@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var parser = (function() {
 	function getStep(line) {
@@ -19,7 +19,7 @@ var parser = (function() {
 			case "i":
 				return eatTheCheese();
 			default:
-				throw 'Die Anweisung "' + line + '" kenne ich leider nicht!';
+				throw "Die Anweisung \"" + line + "\" kenne ich leider nicht!";
 		}
 	}
 	
