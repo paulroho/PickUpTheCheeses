@@ -24,16 +24,19 @@
         }
 	};
 
+    function hideMouseMessage() {
+        mouseBubble.style.opacity = 0;
+    }
+
     function showMouseMessage(context, message) {
         //console.log("showMouseMessage(\"" + message + "\")");
         mouseBubble.textContent = message;
         mouseBubble.style.left = context.mouseLeft + 50;
         mouseBubble.style.top = "10px";
         mouseBubble.style.opacity = .8;
-    }
-
-    function hideMouseMessage() {
-        mouseBubble.style.opacity = 0;
+        setTimeout(function() {
+            hideMouseMessage();
+        }, 5000);
     }
 
     function updateUI() {
