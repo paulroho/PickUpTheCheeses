@@ -1,6 +1,6 @@
 "use strict";
 
-(function(parser, animator){
+(function(parser, animator, cloner){
 	var steps;
 	var btnStart = document.getElementById("start");
 	var btnStop = document.getElementById("stop");
@@ -14,13 +14,22 @@
 	    }).join("\n");
 	    helpElement.innerHTML = text;
 	};
+	var setupBackground = function () {
+	    var templateFlower = document.getElementById("flower-template");
+        for (var i = 0; i < 10; i++) {
+            var clonedFlower = cloner.cloneDeep(templateFlower);
+            clonedFlower.style.left = 86 + (100 * i) + "px";
+            clonedFlower.style.display = "block";
+            templateFlower.parentElement.appendChild(clonedFlower);
+        }
+	};
 
     function showMouseMessage(context, message) {
         //console.log("showMouseMessage(\"" + message + "\")");
         mouseBubble.textContent = message;
         mouseBubble.style.left = context.mouseLeft + 50;
-        mouseBubble.style.top = "100px";
-        mouseBubble.style.opacity = 1;
+        mouseBubble.style.top = "10px";
+        mouseBubble.style.opacity = .8;
     }
 
     function hideMouseMessage() {
@@ -70,7 +79,8 @@
         });
     }
 
+    setupBackground();
     setupHelpOnInstructions();
     hookEventHandler();
 	updateUI();
-})(parser, animator);
+})(parser, animator, cloner);

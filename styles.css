@@ -73,6 +73,53 @@ label[for="helpOnInstructions"] {
 	border:1px solid black;
 }
 
+#flower-template {
+    display: none;
+}
+
+.flower {
+    position: absolute;
+    left: 150px;
+    top: 145px;
+}
+
+.flower .stalk {
+    position: relative;
+    left: 16px;
+    width: 0;
+    height: 55px;
+    border: 2px dotted darkgreen;
+}
+
+.flower .petal {
+    position: absolute;
+    width: 15px;
+    height: 25px;
+    border-radius: 30px/50px;
+    background-color: red;
+    border: 1px solid orange;
+}
+.flower .petal-bl {
+    left: 0;
+    top: 0;
+    transform: rotate(45deg);
+}
+.flower .petal-tl {
+    left: 0px;
+    top: -20px;
+    transform: rotate(-45deg);
+}
+.flower .petal-tr {
+    left: 20px;
+    top: -20px;
+    transform: rotate(45deg);
+}
+.flower .petal-br {
+    left: 20px;
+    top: 0;
+    transform: rotate(-45deg);
+}
+
 .mouse {
 	position:relative;
 	left:100px;
@@ -151,7 +198,7 @@ label[for="helpOnInstructions"] {
     border: 3px solid darkgreen;
     border-radius: .8em;
     padding: 1em;
-    background-color: white;
+    background-color: lightyellow;
 
     transition: opacity .5s ease-in-out;
 }
@@ -217,10 +264,10 @@ label[for="helpOnInstructions"] {
 
 .roof.left {
 	transform:rotate(-10deg);
-	left:5px;
+	left:0;
 }
 
 .roof.right {
 	transform:rotate(10deg);
-	left:600px;
+	left:550px;
 }

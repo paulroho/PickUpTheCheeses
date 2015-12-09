@@ -8,27 +8,36 @@
 	<body>
 		<h1>Hilf der Maus</h1>
 
-		<div id="drawing">
-			<div class="roof left"> </div>
-			<div class="roof right"> </div>
-			<div class="cheese">
-				<div class="pie"> </div>
-				<div class="body"> </div>
-				<div class="hole one"> </div>
-				<div class="hole two"> </div>
-				<div class="hole three"> </div>
-			</div>
-		    <div class="mouse">
-		        <div class="body-top"> </div>
-		        <div class="body-bottom"> </div>
-		        <div class="ear"> </div>
-		        <div class="nose"> </div>
-		        <div class="eye"> </div>
-		        <div class="tail"> </div>
-		    </div>
-            <div id="mouse-bubble" class="bubble">
+	<div id="drawing">
+	    <div class="roof left"> </div>
+	    <div class="roof right"> </div>
+	    <div class="cheese">
+	        <div class="pie"> </div>
+	        <div class="body"> </div>
+	        <div class="hole one"> </div>
+	        <div class="hole two"> </div>
+	        <div class="hole three"> </div>
+	    </div>
+	    <div class="mouse">
+	        <div class="body-top"> </div>
+	        <div class="body-bottom"> </div>
+	        <div class="ear"> </div>
+	        <div class="nose"> </div>
+	        <div class="eye"> </div>
+	        <div class="tail"> </div>
+	    </div>
+        <div class="background">
+            <div id="flower-template" class="flower">
+                <div class="stalk"></div>
+                <div class="petal petal-bl"></div>
+                <div class="petal petal-tl"></div>
+                <div class="petal petal-tr"></div>
+                <div class="petal petal-br"></div>
             </div>
-		</div>
+        </div>
+	    <div id="mouse-bubble" class="bubble">
+	    </div>
+	</div>
 
 	<div id="controls">
 	    <label for="code">Dein Programm:</label>
@@ -40,6 +49,7 @@
 	    <div id="helpOnInstructions"></div>
 	</div>
 
+		<script src="cloner.js"> </script>
 		<script src="animator.js"> </script>
 		<script src="steps.js"> </script>
 		<script src="parser.js"> </script>
