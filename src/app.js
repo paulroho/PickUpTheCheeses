@@ -6,11 +6,12 @@
 	var btnStop = document.getElementById("stop");
 	var btnReset = document.getElementById("reset");
 	var mouseBubble = document.getElementById("mouse-bubble");
+	var commonBubble = document.getElementById("common-bubble");
 
 	var setupHelpOnInstructions = function () {
 	    var helpElement = document.getElementById("helpOnInstructions");
 	    var text = parser.instructions.map(function(item) {
-	        return item.instructions.join(" = ");
+	        return item.instructions.map(function(item) { return "<b>" + item + "</b>" }).join(" = ");
 	    }).join("\n");
 	    helpElement.innerHTML = text;
 	};
@@ -24,15 +25,29 @@
         }
 	};
 
+	function hideCommonMessage() {
+	    commonBubble.style.opacity = 0;
+	}
+
+    function showCommonMessage(message) {
+        //console.log("showMouseMessage(\"" + message + "\")");
+        commonBubble.innerHTML = message;
+        commonBubble.style.top = "10px";
+        commonBubble.style.opacity = .8;
+        setTimeout(function() {
+            hideCommonMessage();
+        }, 5000);
+    }
+
     function hideMouseMessage() {
         mouseBubble.style.opacity = 0;
     }
 
     function showMouseMessage(context, message) {
         //console.log("showMouseMessage(\"" + message + "\")");
-        mouseBubble.textContent = message;
+        mouseBubble.innerHTML = message;
         mouseBubble.style.left = context.mouseLeft + 50;
-        mouseBubble.style.top = "10px";
+        mouseBubble.style.top = "40px";
         mouseBubble.style.opacity = .8;
         setTimeout(function() {
             hideMouseMessage();
@@ -50,7 +65,7 @@
             try {
                 steps = parser.parse(code);
                 if (steps.length === 0) {
-                    alert("Schreib der Maus was sie tun soll.");
+                    showCommonMessage("Schreib der Maus was sie tun soll.");
                 }
                 else {
                     animator.run(steps,
@@ -60,11 +75,15 @@
                         function () {
                             updateUI();
                         },
-                        function (context, message) {
-                            showMouseMessage(context, message);
+                        function (arg1, arg2) {
+                            if (typeof (arg1) !== "string") {
+                                showMouseMessage(arg1, arg2);
+                            }
+                            else {
+                                showCommonMessage(arg1);
+                            }
                         });
                 }
-                hideMouseMessage();
             }
             catch (xcp) {
                 alert(xcp);

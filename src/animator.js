@@ -27,7 +27,13 @@ var animator = (function() {
         }
     }
 
-    function onShowMessage(message) {
+    function onShowCommonMessage(message) {
+        if (typeof (showMessageCallback) !== "undefined") {
+            showMessageCallback(message);
+        }
+    }
+
+    function onShowMouseMessage(message) {
         if (typeof (showMessageCallback) !== "undefined") {
             showMessageCallback(context, message);
         }
@@ -62,7 +68,7 @@ var animator = (function() {
 		if (typeof(nextStep) !== "undefined") {
 			var error = nextStep.start(context);
 			if (typeof(error) === "string") {
-				alert(error);
+				onShowMouseMessage(error);
 				return undefined;
 			}
 		}
@@ -90,7 +96,7 @@ var animator = (function() {
 		context.mouse = mouse;
         context.mouseTail = mouseTail;
 		context.cheese = cheese;
-        context.showMessage = onShowMessage;
+        context.showMessage = onShowMouseMessage;
 		resetContext();
 	}
 

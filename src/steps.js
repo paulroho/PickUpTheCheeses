@@ -36,11 +36,11 @@ var pickUpTheCheese = function() {
 	function checkPreconditions() {
 		var noseLeft = ctx.mouseLeft + 100;
 		if (noseLeft !== ctx.cheeseLeft) {
-			return "Du kannst den K\xE4se hier nicht nehmen. Gehe zuerst zum K\xE4se.";
+			return "Ich kann den K\xE4se hier nicht nehmen.<br/>Bring mich zuerst zum K\xE4se.";
 		}
 
 		if (ctx.hasPickedUpCheese) {
-		    return "Du kannst den K\xE4se nicht nocheinmal nehmen weil du ihn schon genommen hast.";
+		    return "Ich kann den K\xE4se nicht nocheinmal nehmen weil ich ihn schon genommen habe.";
 		}
 	    return undefined;
 	}
@@ -68,7 +68,7 @@ var eatTheCheese = function() {
 
 	function checkPreconditions() {
 	    if (ctx.hasPickedUpCheese !== true) {
-			return "Du kannst den K\xE4se jetzt nicht essen. Nimm ihn zuerst.";
+			return "Ich kannt den K\xE4se jetzt nicht essen.<br/>Lass ihn mich zuerst nehmen.";
 		}
 	    return undefined;
 	}

@@ -211,14 +211,26 @@ label[for="helpOnInstructions"] {
 
 .bubble {
     opacity: 0;
-    position: absolute;
     font-size: 1.5em;
     border: 3px solid darkgreen;
     border-radius: .8em;
     padding: 1em;
-    background-color: lightyellow;
 
     transition: opacity .5s ease-in-out;
+}
+
+#common-bubble {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+    margin-top: 2em;
+    margin-bottom: auto;
+    background-color: lightcoral;
+}
+
+#mouse-bubble {
+    position: absolute;
+    background-color: lightyellow;
 }
 
 .cheese {
