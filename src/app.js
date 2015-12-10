@@ -3,7 +3,6 @@
 (function(parser, animator, cloner){
 	var steps;
 	var btnStart = document.getElementById("start");
-	var btnStop = document.getElementById("stop");
 	var btnReset = document.getElementById("reset");
 	var mouseBubble = document.getElementById("mouse-bubble");
 	var commonBubble = document.getElementById("common-bubble");
@@ -56,7 +55,6 @@
 
     function updateUI() {
         btnStart.disabled = animator.isRunning();
-        btnStop.disabled = !animator.isRunning();
     }
 
     function hookEventHandler() {
@@ -88,10 +86,6 @@
             catch (xcp) {
                 alert(xcp);
             }
-        });
-		
-        btnStop.addEventListener("click", function() {
-            animator.stop();
         });
 		
         btnReset.addEventListener("click", function() {

@@ -68,7 +68,7 @@ var eatTheCheese = function() {
 
 	function checkPreconditions() {
 	    if (ctx.hasPickedUpCheese !== true) {
-			return "Ich kannt den K\xE4se jetzt nicht essen.<br/>Lass ihn mich zuerst nehmen.";
+			return "Ich kann den K\xE4se jetzt nicht essen.<br/>Lass ihn mich zuerst nehmen.";
 		}
 	    return undefined;
 	}

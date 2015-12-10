@@ -48,17 +48,9 @@ label[for="helpOnInstructions"] {
 	height:3em;
 }
 
-#stop {
-	position:absolute;
-    top: 75px;
-    left: 300px;
-	width:10em;
-	height:3em;
-}
-
 #reset {
 	position:absolute;
-	top: 125px;
+	top: 75px;
     left: 300px;
 	width:10em;
 	height:3em;
@@ -66,7 +58,6 @@ label[for="helpOnInstructions"] {
 
 #drawing {
 	position:relative;
-	top:20px;
 	height:200px;
 	width:100%;
 	background-color:#32B5F3;
