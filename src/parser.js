@@ -13,7 +13,7 @@ var parser = (function () {
         });
 
         if (matchingInstructions.length === 0) {
-            throw "Die Anweisung \"" + line + "\" kenne ich leider nicht!";
+            throw "Die Anweisung <span style=\"font-family:monospace\">" + line + "</span> kenne ich leider nicht!";
         }
 
         return matchingInstructions[0].stepFunc();

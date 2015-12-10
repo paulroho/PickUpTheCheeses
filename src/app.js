@@ -32,7 +32,7 @@
         //console.log("showMouseMessage(\"" + message + "\")");
         commonBubble.innerHTML = message;
         commonBubble.style.top = "10px";
-        commonBubble.style.opacity = .8;
+        commonBubble.style.opacity = .9;
         setTimeout(function() {
             hideCommonMessage();
         }, 5000);
@@ -47,7 +47,7 @@
         mouseBubble.innerHTML = message;
         mouseBubble.style.left = context.mouseLeft + 50;
         mouseBubble.style.top = "40px";
-        mouseBubble.style.opacity = .8;
+        mouseBubble.style.opacity = .9;
         setTimeout(function() {
             hideMouseMessage();
         }, 5000);
@@ -84,7 +84,7 @@
                 }
             }
             catch (xcp) {
-                alert(xcp);
+                showCommonMessage(xcp);
             }
         });
 		
