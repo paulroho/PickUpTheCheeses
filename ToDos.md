@@ -1,8 +1,8 @@
 TODOs:
 - Additional graphics
-	. Animated raptor above the house
-	. Better background
-	. Variations in the flower clones
+	- Animated raptor above the house
+	- Better background
+	- Variations in the flower clones
 - Raptor can eat the mouse
 - Random cheese position
 - Prevent the mouse from going through the right wall
@@ -16,8 +16,8 @@ TODOs:
 
 DONE
 - Additional graphics
-	o House left
-	o House right
-	o Markers denoting the step width (pieces of cheese, bread crumbs ->  flowers!)
-o Prevnet restarting during a running animation
-o Show messages within the page (div) instead of an alert box (kind of speech bubble)
+	- House left
+	- House right
+	- Markers denoting the step width (pieces of cheese, bread crumbs ->  flowers!)
+- Prevnet restarting during a running animation
+- Show messages within the page (div) instead of an alert box (kind of speech bubble)
