@@ -7,7 +7,6 @@ TODOs:
 - Random cheese position
 - Prevent the mouse from going through the right wall
 - Improved animations (breathing of the mouse, animated feet, moving flowers, ...)
-- Make it work offline (manifest)
 - Use css animations instead of movement controlled via javascript for each step
 - Control area: position the controls without using absolute positioning
 - Get rid of the horizontal scrollbar in the browser window (depends on mouse position!)
@@ -15,6 +14,7 @@ TODOs:
 
 
 DONE
+- Make it work offline (manifest)
 - Additional graphics
 	- House left
 	- House right
